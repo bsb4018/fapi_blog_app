@@ -18,4 +18,12 @@ Start the application
 uvicorn main:app --reload
 ```
 
+Swagger UI
+```
+http://localhost:8000/docs
+```
 
+Redoc
+```
+http://localhost:8000/redoc
+```
