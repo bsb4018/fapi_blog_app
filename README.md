@@ -27,3 +27,9 @@ Redoc
 ```
 http://localhost:8000/redoc
 ```
+
+Start the blog application
+```
+uvicorn blog.main:app --reload
+```
+
