@@ -1,8 +1,6 @@
 from fastapi import APIRouter, Depends
-from fastapi.exceptions import HTTPException
 from starlette import status
-from starlette.responses import Response
-from .. import schemas, models, database, oauth2
+from .. import schemas, database, oauth2
 from typing import List
 from sqlalchemy.orm import Session
 from .. repository import blog
@@ -22,7 +20,6 @@ def all(db: Session = Depends(get_db), current_user: schemas.User = Depends(oaut
 @router.post('/', status_code=status.HTTP_201_CREATED)
 def create(request: schemas.Blog, db: Session = Depends(get_db), current_user: schemas.User = Depends(oauth2.get_current_user)):
     return blog.create(request, db)
-
 
 
 @router.get('/{id}', status_code=status.HTTP_200_OK, response_model = schemas.ShowBlog)
